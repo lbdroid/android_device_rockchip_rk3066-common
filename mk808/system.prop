@@ -1,0 +1,19 @@
+persist.ro.hardware=rk30board
+persist.sys.strictmode.visual=false
+ro.rk.MassStorage=false
+ro.rk.screenoff_time=-1
+ro.rk.def_brightness=200
+ro.rk.homepage_base=http://www.google.com/webhp?client={CID}&amp;source=android-home
+ro.rksdk.version=rk3066 26-09-2012
+ro.config.facelock=enable_facelock
+persist.facelock.detect_cutoff=5000
+persist.facelock.recog_cutoff=5000
+ro.default.size=100
+ro.product.usbfactory=rockchip_usb
+ro.sf.fakerotation=true
+ro.sf.hwrotation=270
+ril.pppchannel=/dev/ttyUSB2
+ril.function.dataonly=1
+rild.libargs=-d_/dev/ttyUSB1
+rild.libpath=/system/lib/libril-rk29-dataonly.so
+sys.hwc.compose_policy=6
