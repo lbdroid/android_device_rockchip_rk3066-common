@@ -154,8 +154,11 @@ PRODUCT_PACKAGES += \
 	rk_img_maker \
 	rk_mkkrnlimg \
 	rk_mkbootimg \
+	e2fsprogs \
 	dropbear \
-	dropbearkey \
+	openssh \
+	lsof \
+	powertop \
 	vim
 
 # Properties
