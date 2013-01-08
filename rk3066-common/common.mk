@@ -126,15 +126,6 @@ PRODUCT_COPY_FILES += \
 	device/rockchip/rk3066-common/config/alsa/pcm/surround51.conf:system/usr/share/alsa/pcm/surround51.conf \
 	device/rockchip/rk3066-common/config/alsa/pcm/surround71.conf:system/usr/share/alsa/pcm/surround71.conf
 
-# Prebuilt
-PRODUCT_COPY_FILES += \
-	device/rockchip/rk3066-common/prebuilt/bin/ntfs-3g:system/bin/ntfs-3g \
-	device/rockchip/rk3066-common/prebuilt/lib/libntfs-3g.so:system/lib/libntfs-3g.so
-
-# Bootanimation
-PRODUCT_COPY_FILES += \
-	device/rockchip/rk3066-common/prebuilt/bootanimation.zip:system/media/bootanimation.zip
-
 # Build extra packages
 
 # Audio
@@ -146,7 +137,9 @@ PRODUCT_PACKAGES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
 	hciconfig \
-	hcitool
+	hcitool \
+    bttest \
+    l2ping
 
 # Filesystem management
 PRODUCT_PACKAGES += \
