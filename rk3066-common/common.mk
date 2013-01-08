@@ -30,13 +30,7 @@ TARGET_KERNEL_SOURCE := kernel/rockchip
 PRODUCT_COPY_FILES += \
 	device/rockchip/rk3066-common/ramdisk/init.rk30board.rc:root/init.rk30board.rc \
 	device/rockchip/rk3066-common/ramdisk/init.rk30board.usb.rc:root/init.rk30board.usb.rc \
-	device/rockchip/rk3066-common/ramdisk/ueventd.rk30board.rc:root/ueventd.rk30board.rc \
-	device/rockchip/rk3066-common/ramdisk/fstab.rk30board:root/fstab.rk30board
-#	device/rockchip/rk3066-common/ramdisk/init.rc:root/init.rc
-
-# temp hack to gain shell before system mount
-#PRODUCT_COPY_FILES += \
-#    $(call find-copy-subdir-files,*,device/rockchip/rk3066-common/prebuilt/usr/bin,root/system/usr/bin)
+	device/rockchip/rk3066-common/ramdisk/ueventd.rk30board.rc:root/ueventd.rk30board.rc
 
 # Firmware
 PRODUCT_COPY_FILES += \
@@ -99,7 +93,8 @@ PRODUCT_COPY_FILES += \
 
 # Filesystem
 PRODUCT_COPY_FILES += \
-	device/rockchip/rk3066-common/config/vold.fstab:system/etc/vold.fstab
+	device/rockchip/rk3066-common/config/vold.fstab:system/etc/vold.fstab \
+    device/rockchip/rk3066-common/fstab.rk30board:root/fstab.rk30board
 
 # Audio/Alsa
 PRODUCT_COPY_FILES += \
@@ -135,12 +130,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/rockchip/rk3066-common/prebuilt/bin/ntfs-3g:system/bin/ntfs-3g \
 	device/rockchip/rk3066-common/prebuilt/lib/libntfs-3g.so:system/lib/libntfs-3g.so
-#	device/rockchip/rk3066-common/prebuilt/bin/e2fsck:root/sbin/e2fsck \
-#	device/rockchip/rk3066-common/prebuilt/bin/mkdosfs:root/sbin/mkdosfs \
-#	device/rockchip/rk3066-common/prebuilt/bin/mke2fs:root/sbin/mke2fs \
-#	device/rockchip/rk3066-common/prebuilt/bin/readahead:root/sbin/readahead \
-#	device/rockchip/rk3066-common/prebuilt/bin/resize2fs:root/sbin/resize2fs \
-#   device/rockchip/rk3066-common/prebuilt/bin/init:root/init
 
 # Bootanimation
 PRODUCT_COPY_FILES += \
@@ -206,7 +195,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dexopt-flags=m=y
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
-        persist.ro.hardware=rk30board \
+    persist.ro.hardware=rk30board \
 	persist.sys.timezone=Europe/Stockholm \
 	ro.secure=0 \
 	ro.debuggable=1 \
