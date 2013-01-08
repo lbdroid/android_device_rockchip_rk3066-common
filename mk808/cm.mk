@@ -8,7 +8,7 @@ PRODUCT_RELEASE_NAME := GN-GSM
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/rockchip/rk3066-common/common.mk)
 PRODUCT_RESTRICT_VENDOR_FILES := false
 ## Device identifier. This must come after all inclusions
