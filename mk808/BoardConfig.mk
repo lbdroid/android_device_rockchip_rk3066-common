@@ -1,8 +1,14 @@
 include device/rockchip/rk3066-common/BoardCommonConfig.mk
 
-USE_CAMERA_STUB := false 
+USE_CAMERA_STUB := false
+
+PRODUCT_MODEL := Rockchip MK808
+PRODUCT_MANUFACTURER := Rockchip
 
 DEVICE_PACKAGE_OVERLAYS := device/rockchip/mk808/overlay
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.carrier=wifi-only
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
