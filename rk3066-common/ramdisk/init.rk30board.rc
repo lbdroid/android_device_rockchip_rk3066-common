@@ -3,15 +3,21 @@ import init.rk30board.usb.rc
 
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /mnt/external_sd
+    export SECOND_VOLUME_STORAGE /mnt/external_sd
+    export THIRD_VOLUME_STORAGE /mnt/usb_storage
     mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/sdcard1 0775 system system
+    mkdir /storage/usbdisk0 0775 system system
+
+    # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
-
-    export SECOND_VOLUME_STORAGE /mnt/external_sd
-    mkdir /mnt/external_sd 0000 system system
-    export THIRD_VOLUME_STORAGE /mnt/usb_storage/USB_DISK0
-    mkdir /mnt/usb_storage 0777 system system
+    symlink /storage/sdcard1 /mnt/external_sd
+    symlink /storage/sdcard1 /external_sd
+    symlink /storage/usbdisk0 /usbdisk
+    symlink /storage/usbdisk0 /mnt/usbdisk
 
 on init
    insmod /rk30xxnand_ko.ko.3.0.8+
@@ -23,6 +29,7 @@ on post-fs-data
     # we will remap this as /storage/sdcard0 with the sdcard fuse tool
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
+
     mkdir /data/misc/ppp 777 system system
     chmod 777 /data/misc/ppp
     copy /etc/ppp/pap-secrets /data/misc/ppp/pap-secrets
@@ -79,7 +86,7 @@ on boot
     chown system system /sys/class/switch/usb_audio_playback/state
     chown system system /sys/class/switch/usb_audio_capture/state
     
-# create virtual SD card at /mnt/sdcard, based on the /data/media directory
+# create virtual SD card at /storage/sdcard0, based on the /data/media directory
 # daemon will drop to user/group system/media_rw after initializing
 # underlying files in /data/media will be created with user and group media_rw (1023)
 service sdcard /system/bin/sdcard /data/media 1023 1023
