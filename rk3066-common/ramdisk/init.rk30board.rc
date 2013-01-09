@@ -3,9 +3,9 @@ import init.rk30board.usb.rc
 
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /mnt/external_sd
-    export SECOND_VOLUME_STORAGE /mnt/external_sd
-    export THIRD_VOLUME_STORAGE /mnt/usb_storage
+    export SECONDARY_STORAGE /storage/sdcard1
+    export SECOND_VOLUME_STORAGE /storage/sdcard1
+    export THIRD_VOLUME_STORAGE /storage/usbdisk0
     mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
     mkdir /storage/sdcard1 0775 system system
