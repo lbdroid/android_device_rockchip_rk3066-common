@@ -159,11 +159,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
-# Video
-PRODUCT_PACKAGES += \
-	libavcodec \
-	libavutil
-
 # Utils
 PRODUCT_PACKAGES += \
 	openssh \
@@ -192,6 +187,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	persist.sys.timezone=Europe/Stockholm \
 	ro.secure=0 \
 	ro.debuggable=1 \
+	persist.service.adb.enable=1 \
 	ro.allow.mock.location=1 \
 	ro.kernel.android.checkjni=1 \
 	ro.product.usbfactory=rockchip_usb \
