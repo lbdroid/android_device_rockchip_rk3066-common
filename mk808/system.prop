@@ -1,13 +1,3 @@
-persist.sys.strictmode.visual=false
-ro.rk.MassStorage=false
-ro.rk.screenoff_time=-1
-ro.rk.def_brightness=200
-ro.rk.homepage_base=http://www.google.com/webhp?client={CID}&amp;source=android-home
-ro.rksdk.version=rk3066 26-09-2012
-ro.config.facelock=enable_facelock
-persist.facelock.detect_cutoff=5000
-persist.facelock.recog_cutoff=5000
-ro.default.size=100
 ril.pppchannel=/dev/ttyUSB2
 ril.function.dataonly=1
 rild.libargs=-d_/dev/ttyUSB1

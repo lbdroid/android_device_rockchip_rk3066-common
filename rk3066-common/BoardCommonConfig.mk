@@ -14,9 +14,7 @@
 # limitations under the License.
 #
 
-BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_NEEDS_MEMORYHEAPPMEM := true
-TARGET_PROVIDES_INIT_RC := false
 
 # CPU
 TARGET_CPU_ABI := armeabi-v7a
@@ -37,10 +35,17 @@ TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -DUSES_AUDIO_LEGACY
 
 TARGET_BOARD_PLATFORM := rockchip
+TARGET_SOC := rk3066
 TARGET_BOOTLOADER_BOARD_NAME := rk30board
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
+
+TARGET_PROVIDES_INIT := true
+TARGET_PROVIDES_INIT_TARGET_RC := true
+TARGET_RECOVERY_INITRC := device/rockchip/rk3066-common/recovery/init.recovery.rc
+
+BOARD_CUSTOM_BOOTIMG_MK := device/rockchip/rk3066-common/customboot.mk
 
 # Kernel
 TARGET_KERNEL_SOURCE := kernel/rockchip
@@ -51,10 +56,7 @@ TARGET_KERNEL_SOURCE := kernel/rockchip
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_SYSTEMIMAGES_USE_EXT3 := true
-BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_HAS_NO_MISC_PARTITION := false
 BOARD_HAS_SDCARD_INTERNAL := true
-BOARD_USES_MMCUTILS := true
 #TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 
 # Releasetools
@@ -63,8 +65,11 @@ TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/rockchip/rk3066/recovery/roc
 # Graphics
 USE_OPENGL_RENDERER := true
 TARGET_DISABLE_TRIPLE_BUFFERING := true
-BOARD_EGL_CFG := device/rockchip/rk3066-common/config/egl.cfg
+BOARD_EGL_CFG := device/rockchip/rk3066-common/configs/egl.cfg
 #BOARD_USES_HGL := true
+
+# HWComposer
+BOARD_USES_HWCOMPOSER := true
 
 # Enable WebGL in WebKit
 ENABLE_WEBGL := true
@@ -77,7 +82,6 @@ TARGET_PROVIDES_LIBAUDIO := true
 #BOARD_USES_GENERIC_AUDIO := false
 
 # Wifi
-#BOARD_WLAN_DEVICE := rtl8192cu
 WPA_SUPPLICANT_VERSION := VER_0_6_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 #CONFIG_DRIVER_WEXT := y
@@ -97,11 +101,11 @@ TARGET_CUSTOM_BLUEDROID := ../../../device/rockchip/rk3066-common/bluetooth/blue
 
 # Recovery
 TARGET_NO_RECOVERY := false
-TARGET_RECOVERY_INITRC := device/rockchip/rk3066-common/recovery/init.recovery.rc
 BOARD_CUSTOM_RECOVERY_EVENTS := ../../../device/rockchip/rk3066-common/recovery/recovery_events.c
+BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_USES_MMCUTILS := true
+BOARD_HAS_LARGE_FILESYSTEM := true
+BOARD_HAS_NO_MISC_PARTITION := false
 
-BOARD_CUSTOM_BOOTIMG_MK := device/rockchip/rk3066-common/customboot.mk
-
-include device/rockchip/rk3066-common/build.mk
--include build.mk
-
+# inherit from the proprietary version
+-include vendor/rockchip/rk3066-common/BoardConfigVendor.mk
