@@ -23,8 +23,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 PRODUCT_COPY_FILES += \
-    device/rockchip/rk3066-common/ramdisk/init.rk30board.usb.rc:root/init.rk30board.usb.rc \
-    device/rockchip/rk3066-common/ramdisk/ueventd.rk30board.rc:root/ueventd.rk30board.rc
+    device/rockchip/rk3066-common/init.rk30board.usb.rc:root/init.rk30board.usb.rc \
+    device/rockchip/rk3066-common/ueventd.rk30board.rc:root/ueventd.rk30board.rc
 
 # Firmware
 PRODUCT_COPY_FILES += \
@@ -83,7 +83,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_COPY_FILES += \
-    device/rockchip/rk3066-common/configs/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+    device/rockchip/rk3066-common/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
@@ -170,7 +170,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.service.adb.enable=1 \
     persist.sys.usb.otg=slave \
-    persist.sys.usb.config=mtp,adb
+    persist.sys.usb.config=mtp
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.lockprof.threshold=500 \

@@ -9,7 +9,7 @@ TARGET_SCREEN_WIDTH := 1080
 $(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/rockchip/full_mk808.mk)
+$(call inherit-product, device/rockchip/mk808/full_mk808.mk)
 
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
