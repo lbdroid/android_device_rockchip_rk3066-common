@@ -171,7 +171,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=y \
     ro.opengles.version=131072 \
     hwui.render_dirty_regions=false \
-    wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15
 
 ADDITIONAL_DEFAULT_PROPERTIES += \

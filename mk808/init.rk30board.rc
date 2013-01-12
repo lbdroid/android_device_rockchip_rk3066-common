@@ -19,7 +19,7 @@ on early-init
     symlink /storage/usbdisk0 /mnt/usbdisk
 
 on init
-   insmod /rk30xxnand_ko.ko.3.0.8+
+    insmod /rk30xxnand_ko.ko.3.0.8+
 
 on fs
     mount_all /fstab.rk30board
@@ -42,6 +42,17 @@ on init
     symlink /etc/bluez/bcm432x/BCM4329B1_002.002.023.0389.0000_Cybertan-Foxconn_Cls2_extLNA_EDRmaxInputLev+PeakDEVM_NT.hcd /bcm4329_cybertan.hcd
 
 on boot
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+
+    setprop ro.radio.noril yes
+    setprop wifi.interface wlan0
+    setprop ro.build.product mk808
+    setprop ro.product.device mk808
+
+    # fake some battery state
+    setprop status.battery.level 100
+    setprop status.battery.level_raw  100
+
     mount debugfs /sys/kernel/debug /sys/kernel/debug
     insmod /system/lib/modules/ump.ko
     insmod /system/lib/modules/mali.ko mali_dvfs=50,100,133,160,200,266,400 mali_init_clock=50
