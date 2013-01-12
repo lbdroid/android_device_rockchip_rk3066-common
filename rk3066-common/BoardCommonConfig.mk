@@ -41,9 +41,9 @@ TARGET_BOOTLOADER_BOARD_NAME := rk30board
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
-#TARGET_PROVIDES_INIT := true
+TARGET_PROVIDES_INIT := true
 TARGET_PROVIDES_INIT_RC := false
-#TARGET_PROVIDES_INIT_TARGET_RC := true
+TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_RECOVERY_INITRC := device/rockchip/rk3066-common/recovery/init.recovery.rc
 
 BOARD_CUSTOM_BOOTIMG_MK := device/rockchip/rk3066-common/customboot.mk
