@@ -4,7 +4,6 @@ import init.rk30board.usb.rc
 on early-init
     export EXTERNAL_STORAGE /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1
-    export SECOND_VOLUME_STORAGE /storage/sdcard1
     export THIRD_VOLUME_STORAGE /storage/usbdisk0
     mkdir /storage 0050 system sdcard_r
     mkdir /storage/sdcard0 0000 system system
@@ -93,9 +92,7 @@ service sdcard /system/bin/sdcard /data/media 1023 1023
     class late_start
 
 # create filesystems if necessary
-service setup_fs /system/bin/setup_fs \
-        mtdblock5 \
-        mtdblock8
+service setup_fs /system/bin/setup_fs mtdblock5 mtdblock8
     class core
     user root
     group root
