@@ -99,7 +99,7 @@
              4  UI_MODE_TYPE_TELEVISION
              5  UI_MODE_TYPE_APPLIANCE
          Any other values will have surprising consequences. -->
-    <integer name="config_defaultUiModeType">4</integer>
+    <integer name="config_defaultUiModeType">1</integer>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
@@ -139,6 +139,10 @@
 
     <!-- Enables built-in SIP phone capability -->
     <bool name="config_built_in_sip_phone">true</bool>
+
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
 
     <!-- CM CHANGES START HERE -->
 
