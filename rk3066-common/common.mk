@@ -85,10 +85,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/rockchip/rk3066-common/configs/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    wifi.interface=wlan0 \
-    wifi.supplicant_scan_interval=15
-
 # Vold/Storage
 PRODUCT_COPY_FILES += \
     device/rockchip/rk3066-common/configs/vold.fstab:system/etc/vold.fstab
@@ -168,15 +164,15 @@ PRODUCT_PACKAGES += \
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.service.adb.enable=1 \
-    persist.sys.usb.otg=slave \
-    persist.sys.usb.config=mtp
+    persist.service.adb.enable=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.lockprof.threshold=500 \
     dalvik.vm.dexopt-flags=m=y \
     ro.opengles.version=131072 \
-    hwui.render_dirty_regions=false
+    hwui.render_dirty_regions=false \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.timezone=Europe/Stockholm \
@@ -187,17 +183,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # Rockchip specific properties
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    ro.rk.install_non_market_apps=true
-    ro.rk.MassStorage=false
-    ro.rk.screenoff_time=-1
-    ro.rk.def_brightness=200
-    ro.rk.homepage_base=http://www.google.com/webhp?client={CID}&amp;source=android-home
-    ro.rksdk.version=rk3066 26-09-2012
-
-# insecure and debuggable by default while developing
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.secure=0 \
-    ro.debuggable=1
 
 PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_TAGS += dalvik.gc.type-precise
