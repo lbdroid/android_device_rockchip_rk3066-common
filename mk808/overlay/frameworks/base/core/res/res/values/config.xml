@@ -99,13 +99,13 @@
              4  UI_MODE_TYPE_TELEVISION
              5  UI_MODE_TYPE_APPLIANCE
          Any other values will have surprising consequences. -->
-    <integer name="config_defaultUiModeType">1</integer>
+    <integer name="config_defaultUiModeType">4</integer>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
 
     <!-- Diable lockscreen rotation by default -->
-    <bool name="config_enableLockScreenRotation">true</bool>
+    <bool name="config_enableLockScreenRotation">false</bool>
 
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
          specified -->
@@ -152,9 +152,6 @@
 
     <!-- True will enable the electron beam screen-off animation. -->
     <bool name="config_screenOffAnimation">false</bool>
-
-    <!-- Device has a h/w rotation lock switch -->
-    <bool name="config_hasRotationLockSwitch">false</bool>
 
     <!-- Maximum wallpaper width for devices with very high-res screen (1920x1200)
          the wallpaper width suggestion by the launcher may be too large for
