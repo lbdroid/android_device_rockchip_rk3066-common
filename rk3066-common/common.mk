@@ -180,9 +180,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     sys.hwc.compose_policy=6 \
     testing.mediascanner.skiplist=/mnt/sdcard/Android/
 
-# Rockchip specific properties
-ADDITIONAL_DEFAULT_PROPERTIES += \
-
 PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_TAGS += dalvik.gc.type-precise
 
