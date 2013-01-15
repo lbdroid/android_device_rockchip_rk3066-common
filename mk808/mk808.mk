@@ -7,8 +7,8 @@ LOCAL_PATH := device/rockchip/mk808
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+PRODUCT_AAPT_configs := xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xlarge
-PRODUCT_AAPT_configs := xlarge mdpi normal xhdpi hdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -28,6 +28,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.facelock.recog_cutoff=5000
 
 ADDITIONAL_DEFAULT_PROPERTIES += \
+    wifi.interface=wlan0 \
     persist.sys.strictmode.visual=false \
     ro.default.size=100 \
     persist.ro.hardware=rk30board \
