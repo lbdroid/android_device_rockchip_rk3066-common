@@ -51,7 +51,20 @@
 /dev/mali           	  0666   system   	 system
 /dev/ump           	  0666   system   	 system
 
+# for sgx
+/dev/pvrsrvkm         0666   system      system
+
+# wifi
+/dev/rfkill           0660   wifi        wifi
+
 #for hdmi
 /sys/class/display/HDMI/enable   0664     root       system
 /sys/class/display/HDMI/mode     0664     root       system
 /sys/class/display/HDMI/scale    0664     root       system
+/sys/class/graphics/fb0/blank    0664     root       system
+/sys/class/hdmi/hdmi-0/enable   enable      0664  root   system
+/sys/class/hdmi/hdmi-0/state    enable      0664  root   system
+#/sys/class/misc/hdcp/enable     disable     0664  root   system
+
+#for DRM
+/dev/rknand_sys_storage   0660   system     system 
