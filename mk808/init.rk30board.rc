@@ -34,6 +34,13 @@ on post-fs-data
     copy /etc/ppp/pap-secrets /data/misc/ppp/pap-secrets
     copy /etc/ppp/pppoe.conf /data/misc/ppp/pppoe.conf
 
+    insmod /system/lib/modules/ump.ko
+    insmod /system/lib/modules/mali.ko mali_dvfs=50,100,133,160,200,266,400 mali_init_clock=50
+    insmod /system/lib/modules/rk29-ipp.ko
+    insmod /system/lib/modules/vpu_service.ko
+#    insmod /system/lib/modules/virtual_keyboard.ko
+#    insmod /system/lib/modules/btusb.ko
+
     setprop vold.post_fs_data_done 1
 
 on init
@@ -43,6 +50,8 @@ on init
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
+    chown system system /sys/devices/system/cpu/cpu1/online
+    chmod 0660 /sys/devices/system/cpu/cpu1/online
 
     setprop UserVolumeLabel "RockChips"
     setprop ro.radio.noril yes
@@ -53,15 +62,6 @@ on boot
     # fake some battery state
     setprop status.battery.level 90
 
-    insmod /system/lib/modules/rkwifi.ko    
-    insmod /system/lib/modules/ump.ko
-    insmod /system/lib/modules/mali.ko mali_dvfs=50,100,133,160,200,266,400 mali_init_clock=50
-    insmod /system/lib/modules/rk29-ipp.ko
-    insmod /system/lib/modules/vpu_service.ko
-#    insmod /system/lib/modules/virtual_keyboard.ko
-#    insmod /system/lib/modules/rtl8192cu.ko
-#    insmod /system/lib/modules/btusb.ko
-
 # Hdmi
     chown root system /sys/class/display/HDMI/enable
     chown root system /sys/class/display/HDMI/mode
@@ -70,6 +70,7 @@ on boot
 # WiFi
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
+    mkdir /data/misc/wifi/sockets/tmp 0440 wifi wifi
     mkdir /data/misc/dhcp 0770 dhcp dhcp
     chown dhcp dhcp /data/misc/dhcp
 
@@ -115,8 +116,8 @@ service setup_fs /system/bin/setup_fs \
     oneshot
 
 service wpa_supplicant /system/bin/wpa_supplicant \
-    #-Dwnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
     -Dwext -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
+    #-Dwnl80211 -iwlan0 -c/data/misc/wifi/wpa_supplicant.conf
     #-Dnl80211 -iwlan0 -puse_p2p_group_interface=1 -e/data/misc/wifi/entropy.bin
     #   we will start as root and wpa_supplicant will switch to user wifi
     #   after setting up the capabilities required for WEXT
@@ -196,6 +197,15 @@ service iprenew_eth0 system/bin/dhcpcd -n
     disabled
     oneshot
 
+#service battery_charger /charger
+#    class charger
+
+#service akmd /system/bin/akmd8975
+#        class main
+#        user system
+#        group system
+#        oneshot
+
 on property:sys.gmali.performance=ui
     start pat_ui
 
@@ -238,4 +248,3 @@ service pppoe_stop /system/bin/pppoe-stop
 service cifsmanager /data/etc/cifsmanager.sh
     disabled
     oneshot
-
