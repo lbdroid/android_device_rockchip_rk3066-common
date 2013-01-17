@@ -3,7 +3,7 @@ ril.function.dataonly=1
 rild.libargs=-d_/dev/ttyUSB1
 rild.libpath=/system/lib/libril-rk29-dataonly.so
 ro.rk.install_non_market_apps=true
-ro.rk.MassStorage=false
+ro.rk.MassStorage=true
 ro.rk.screenoff_time=-1
 ro.rk.def_brightness=200
 ro.rk.homepage_base=http://www.google.com/webhp?client={CID}&amp;source=android-home
