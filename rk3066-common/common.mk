@@ -137,8 +137,7 @@ PRODUCT_PACKAGES += \
 # Filesystem management
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    setup_fs \
-    e2fsck
+    setup_fs
 
 # Rockchip utils
 PRODUCT_PACKAGES += \
@@ -152,15 +151,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-# Utils
-PRODUCT_PACKAGES += \
-    openssh \
-    lsof \
-    vim
-
 # Graphics
 PRODUCT_PACKAGES += \
     librs_jni
+
+# Extra packages
+PRODUCT_PACKAGES += \
+    Camera
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
