@@ -39,7 +39,6 @@ on post-fs-data
     insmod /system/lib/modules/rk29-ipp.ko
     insmod /system/lib/modules/vpu_service.ko
 #    insmod /system/lib/modules/virtual_keyboard.ko
-#    insmod /system/lib/modules/btusb.ko
 
     setprop vold.post_fs_data_done 1
 
@@ -145,14 +144,6 @@ service rtl_supplicant /system/bin/wpa_supplicant \
 
 service hostapd /system/bin/hostapd /data/misc/wifi/hostapd.conf
     class main
-    disabled
-    oneshot
-
-# service hciattach /system/bin/brcm_patchram_plus --patchram bychip --baudrate 1500000 --enable_lpm --enable_hci /dev/ttyS0
-service hciattach /system/bin/busybox true
-    console
-    user bluetooth
-    group bluetooth net_bt_admin
     disabled
     oneshot
 

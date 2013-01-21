@@ -97,6 +97,7 @@ WIFI_DRIVER_MODULE_NAME := "wlan"
 WIFI_DRIVER_MODULE_ARG := ""
 
 # Bluetooth
+BOARD_HAVE_BLUETOOTH := true
 TARGET_CUSTOM_BLUEDROID := ../../../device/rockchip/rk3066-common/bluetooth/bluedroid.c
 
 # Recovery
