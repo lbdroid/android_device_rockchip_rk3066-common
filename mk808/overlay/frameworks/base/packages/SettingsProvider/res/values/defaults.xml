@@ -31,7 +31,7 @@
     <integer name="def_wifi_sleep_policy">2</integer>
 
     <!-- Default for Settings.System.USER_ROTATION -->
-    <integer name="def_user_rotation">0</integer>
+    <integer name="def_user_rotation">90</integer>
 
     <!-- Default for UI touch sounds enabled -->
     <bool name="def_sound_effects_enabled">false</bool>
