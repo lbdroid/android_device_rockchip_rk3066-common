@@ -91,7 +91,7 @@
 
     <!-- If true, the screen can be rotated via the accelerometer in all 4
          rotations as the default behavior. -->
-    <bool name="config_allowAllRotations">false</bool>
+    <bool name="config_allowAllRotations">true</bool>
 
     <!-- Control the default UI mode type to use when there is no other type override
          happening.  One of the following values (See Configuration.java):
@@ -105,7 +105,7 @@
     <bool name="config_batterySdCardAccessibility">true</bool>
 
     <!-- Diable lockscreen rotation by default -->
-    <bool name="config_enableLockScreenRotation">false</bool>
+    <bool name="config_enableLockScreenRotation">true</bool>
 
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not
          specified -->
@@ -142,7 +142,7 @@
 
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
-    <bool name="config_showNavigationBar">true</bool>
+    <bool name="config_showNavigationBar">false</bool>
 
     <!-- CM CHANGES START HERE -->
 
