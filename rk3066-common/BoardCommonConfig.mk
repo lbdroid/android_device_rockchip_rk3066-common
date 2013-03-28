@@ -60,7 +60,7 @@ TARGET_SYSTEMIMAGES_USE_EXT3 := true
 #TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 
 # Releasetools
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/rockchip/rk3066-common/recovery/rockchip_ota_from_target_files
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/rockchip/rk3066-common/releasetools/rockchip_ota_from_target_files
 
 # Graphics
 USE_OPENGL_RENDERER := true
