@@ -6,4 +6,4 @@
 /cache          ext4        /dev/block/mtdblock6
 /system         ext4        /dev/block/mtdblock8
 /data           ext4        /dev/block/mtdblock9
-/external-sd    vfat        /dev/block/mmcblk0p1
+/sdcard         vfat        /dev/block/mmcblk0p1
