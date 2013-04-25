@@ -35,7 +35,9 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.product.manufacturer=Rockchip \
     ro.product.model=mk808
 #    ro.sf.fakerotation=true
-#    ro.sf.hwrotation=270
+    ro.sf.hwrotation=90
+    persist.sys.scalerate_x=100
+    persist.sys.scalerate_y=100
 
 # Debug
 ADDITIONAL_DEFAULT_PROPERTIES += \
