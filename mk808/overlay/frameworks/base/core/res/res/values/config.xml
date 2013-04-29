@@ -100,6 +100,10 @@
              5  UI_MODE_TYPE_APPLIANCE
          Any other values will have surprising consequences. -->
     <integer name="config_defaultUiModeType">4</integer>
+    
+    <!-- Base "touch slop" value used by ViewConfiguration as a
+         movement threshold where scrolling should begin. -->
+    <dimen name="config_viewConfigurationTouchSlop">24dp</dimen>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
