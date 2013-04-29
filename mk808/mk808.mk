@@ -1,4 +1,3 @@
-
 # include common makefile
 $(call inherit-product, device/rockchip/rk3066-common/common.mk)
 
@@ -23,7 +22,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.carrier=wifi-only \
-    ro.sf.lcd_density=160 \
+    ro.sf.lcd_density=170 \
     ro.config.facelock=enable_facelock \
     persist.facelock.detect_cutoff=5000 \
     persist.facelock.recog_cutoff=5000
