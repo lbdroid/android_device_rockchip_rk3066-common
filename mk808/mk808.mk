@@ -13,7 +13,8 @@ PRODUCT_AAPT_PREF_CONFIG := xlarge
 # Init files
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/fstab.rk30board:root/fstab.rk30board \
-    $(LOCAL_PATH)/init.rk30board.rc:root/init.rk30board.rc
+    $(LOCAL_PATH)/init.rk30board.rc:root/init.rk30board.rc \
+    $(LOCAL_PATH)/E_T_INC__E_T_IR_SCREEN.idc:system/usr/idc/E_T_INC__E_T_IR_SCREEN.idc
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
