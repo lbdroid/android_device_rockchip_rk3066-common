@@ -146,6 +146,7 @@ PRODUCT_PACKAGES += \
     rk_img_maker \
     rk_mkkrnlimg \
     rk_mkbootimg
+#    rkflashtool
 
 # USB
 PRODUCT_PACKAGES += \

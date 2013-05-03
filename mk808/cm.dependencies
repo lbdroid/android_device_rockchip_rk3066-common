@@ -1,0 +1,10 @@
+[
+  {
+    "repository": "android_device_rockchip_rk3066-common",
+    "target_path": "device/rockchip/rk3066-common"
+  },
+  {
+    "repository": "android_kernel_rockchip_mk808",
+    "target_path": "kernel/rockchip/mk808"
+  }
+]

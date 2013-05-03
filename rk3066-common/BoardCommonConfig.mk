@@ -46,10 +46,7 @@ TARGET_PROVIDES_INIT_RC := false
 TARGET_PROVIDES_INIT_TARGET_RC := true
 TARGET_RECOVERY_INITRC := device/rockchip/rk3066-common/recovery/init.recovery.rc
 
-BOARD_CUSTOM_BOOTIMG_MK := device/rockchip/rk3066-common/customboot.mk
-
-# Kernel
-TARGET_KERNEL_SOURCE := kernel/rockchip/mk808
+BOARD_CUSTOM_BOOTIMG_MK := device/rockchip/rk3066-common/rk_images.mk
 
 # Custom kernel toolchain
 # TARGET_KERNEL_CUSTOM_TOOLCHAIN :=
@@ -60,7 +57,7 @@ TARGET_SYSTEMIMAGES_USE_EXT3 := true
 #TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
 
 # Releasetools
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/rockchip/rk3066-common/releasetools/rockchip_ota_from_target_files
+#TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/rockchip/rk3066-common/releasetools/rockchip_ota_from_target_files
 
 # Graphics
 USE_OPENGL_RENDERER := true
@@ -101,7 +98,6 @@ BOARD_HAVE_BLUETOOTH := true
 TARGET_CUSTOM_BLUEDROID := ../../../device/rockchip/rk3066-common/bluetooth/bluedroid.c
 
 # Recovery
-TARGET_NO_RECOVERY := false
 BOARD_CUSTOM_RECOVERY_EVENTS := ../../../device/rockchip/rk3066-common/recovery/recovery_events.c
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USES_MMCUTILS := true
