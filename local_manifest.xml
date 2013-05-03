@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+<project name="lbdroid/android_device_rockchip" path="device/rockchip" remote="github" revision="cm-10" />
+<project name="lbdroid/android_vendor_rockchip" path="vendor/rockchip" remote="github" revision="cm-10" />
+<project name="lbdroid/android_kernel_rockchip_mk808" path="kernel/rockchip/mk808" remote="github" revision="master" />
+</manifest>
+
