@@ -1,0 +1,33 @@
+CM-10.1 for MK808:
+
+Start with your standard CM repo init;
+repo init -u git://github.com/CyanogenMod/android.git -b cm-10.1
+
+Copy the local manifest file into .repo/local_manifests/
+
+Then "repo sync".
+
+. build/envsetup.sh
+brunch mk808
+
+This will build output images at out/target/product/mk808
+The images you are looking for are;
+boot.img
+kernel.img
+recovery.img
+system.img
+
+Using rkflashtool
+gcc -o rkflashtool device/rockchip/rk3066-common/rk-tools/rkflashtool.c -lusb-1.0 -O2 -W -Wall -s
+
+Put the mk808 into flash mode (push internal button with paperclip and hold, while plugging in USB to "otg" plug), and write the images to the device:
+
+rkflashtool w 0x00004000 0x00004000 < kernel.img
+rkflashtool w 0x00008000 0x00008000 < boot.img
+rkflashtool w 0x00010000 0x00008000 < recovery.img
+rkflashtool w 0x0011A000 0x00100000 < system.img
+
+Some notes:
+First off, this does NOT produce the standard update.zip. Reason being that the flash mode is so much more convenient, you might as well just write everything directly.
+
+It uses some hacks to accomplish this; specifically, the update.zip is created only when either variable "TARGET_RECOVERY_FSTAB" is set, or there is a file named "recovery.fstab" found in the device tree's root directory. I'm instead using "recovery_root_private" to include the recovery fstab into the recovery image, so relocated the recovery.fstab into device tree's recovery/root/etc/ path. This hack also breaks the "bacon" target, which is redefined in rk_images.mk along with the rest of the specialized rk3066 images.
